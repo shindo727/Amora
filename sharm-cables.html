@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Lovers — Cable Car Sharm El Sheikh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A86C;
+    --gold-light: #E8C987;
+    --deep: #0B1220;
+    --deep2: #121B2E;
+    --sand: #F5ECD7;
+    --coral: #E87B5A;
+    --text: #D8CFC0;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0B1220 0%, #1a2a45 50%, #0d1f35 100%);
+  }
+
+  .hero-bg-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 80px, var(--gold) 80px, var(--gold) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, var(--gold) 80px, var(--gold) 81px);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,108,0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cable-illustration {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .cable-line {
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    width: 110%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+    animation: cableSway 6s ease-in-out infinite;
+  }
+  .cable-line:nth-child(2) { top: 32%; animation-delay: -2s; opacity: 0.15; }
+  .cable-line:nth-child(3) { top: 28%; animation-delay: -4s; opacity: 0.1; }
+
+  @keyframes cableSway {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+  }
+
+  .gondola {
+    position: absolute;
+    top: 24%;
+    animation: gondolaMove 12s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes gondolaMove {
+    0% { left: 5%; }
+    50% { left: 75%; }
+    100% { left: 5%; }
+  }
+
+  .gondola-box {
+    width: 50px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 6px 6px 3px 3px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  }
+  .gondola-box::before {
+    content: '♥';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--deep);
+    font-size: 14px;
+  }
+  .gondola-box::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: var(--gold);
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 20px;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep);
+    padding: 14px 36px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201,168,108,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(201,168,108,0.4);
+    color: var(--gold);
+    padding: 14px 36px;
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    background: rgba(201,168,108,0.1);
+    border-color: var(--gold);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 1s ease both;
+  }
+  .scroll-arrow {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollAnim 2s ease-in-out infinite;
+  }
+  @keyframes scrollAnim {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.5; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(11,18,32,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,108,0.1);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .logo span { color: var(--white); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-contact {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  .nav-contact:hover {
+    background: var(--gold);
+    color: var(--deep);
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 8rem 2rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ===== EXPERIENCE SECTION ===== */
+  .experience {
+    background: var(--deep2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .experience::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,108,0.05) 0%, transparent 70%);
+  }
+
+  .exp-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .exp-visual {
+    position: relative;
+  }
+
+  .exp-photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #1a2a45, #0d1f35);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,108,0.15);
+  }
+
+  .exp-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(201,168,108,0.05) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='600' viewBox='0 0 400 600'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a6e' stop-opacity='0.8'/%3E%3Cstop offset='60%25' stop-color='%23e87b5a' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%230B1220' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='600' fill='url(%23sky)'/%3E%3Cellipse cx='200' cy='600' rx='300' ry='120' fill='%230B1220'/%3E%3Ccircle cx='200' cy='180' r='50' fill='%23C9A86C' opacity='0.7'/%3E%3Cpath d='M 50 350 Q 200 250 350 350' stroke='%23C9A86C' stroke-width='2' fill='none' opacity='0.4'/%3E%3Crect x='170' y='290' width='60' height='45' rx='5' fill='%23C9A86C' opacity='0.8'/%3E%3Crect x='183' y='282' width='2' height='12' fill='%23C9A86C' opacity='0.9'/%3E%3Crect x='215' y='282' width='2' height='12' fill='%23C9A86C' opacity='0.9'/%3E%3Ctext x='200' y='320' text-anchor='middle' font-size='16' fill='%230B1220'%3E♥%3C/text%3E%3C/svg%3E") center/cover;
+  }
+
+  .exp-badge-float {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    background: var(--gold);
+    color: var(--deep);
+    padding: 1.5rem;
+    border-radius: 2px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+  }
+  .exp-badge-float .num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+  }
+  .exp-badge-float .lbl {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .exp-text p {
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(201,168,108,0.12);
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+  .feature-item:hover {
+    border-color: rgba(201,168,108,0.4);
+    background: rgba(201,168,108,0.03);
+  }
+
+  .feature-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .feature-item h4 {
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .feature-item p {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ===== PACKAGES ===== */
+  .packages {
+    background: var(--deep);
+    text-align: center;
+  }
+
+  .packages-grid {
+    max-width: 1050px;
+    margin: 4rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pkg-card {
+    border: 1px solid rgba(201,168,108,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: all 0.4s;
+    position: relative;
+    background: var(--deep2);
+  }
+
+  .pkg-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .pkg-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #1a2a45, #0d1f35);
+  }
+
+  .pkg-featured-label {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--gold);
+    color: var(--deep);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .pkg-photo {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pkg-photo-inner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pkg-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+  }
+
+  .pkg1-bg { background: linear-gradient(135deg, #1a3a5e, #2a5a8e); }
+  .pkg2-bg { background: linear-gradient(135deg, #4a1a35, #8e2a5e); margin-top: 30px; }
+  .pkg3-bg { background: linear-gradient(135deg, #1a4a2a, #2a8e4a); }
+
+  .pkg-body { padding: 1.8rem; }
+  .pkg-body.featured-body { padding-top: 2.5rem; }
+
+  .pkg-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .pkg-desc {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .pkg-includes {
+    list-style: none;
+    margin-bottom: 1.8rem;
+  }
+  .pkg-includes li {
+    font-size: 0.8rem;
+    color: var(--text);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .pkg-includes li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  .pkg-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+  }
+  .pkg-price .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .pkg-price .currency {
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .pkg-price .per {
+    font-size: 0.75rem;
+    color: var(--text);
+  }
+
+  .pkg-cta {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+
+  .pkg-cta:hover, .pkg-cta.solid {
+    background: var(--gold);
+    color: var(--deep);
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery {
+    background: var(--deep2);
+    text-align: center;
+  }
+
+  .gallery-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.8rem;
+  }
+
+  .gallery-item {
+    border-radius: 2px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+  .gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .gallery-item:hover .gallery-placeholder {
+    transform: scale(1.05);
+  }
+
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(11,18,32,0);
+    transition: all 0.4s;
+  }
+  .gallery-item:hover::after {
+    background: rgba(11,18,32,0.4);
+  }
+
+  .g1 { background: linear-gradient(135deg, #1a3a6e, #e87b5a); }
+  .g2 { background: linear-gradient(135deg, #2a1a5e, #5a3a9e); }
+  .g3 { background: linear-gradient(135deg, #1a5e3a, #3a9e5a); }
+  .g4 { background: linear-gradient(135deg, #5e1a1a, #9e5a3a); }
+  .g5 { background: linear-gradient(135deg, #1a4e5e, #3a8e9e); }
+
+  .gallery-emoji { font-size: 2rem; }
+  .gallery-caption {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .gallery-upload-note {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border: 1px dashed rgba(201,168,108,0.3);
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+
+  /* ===== REVIEWS ===== */
+  .reviews {
+    background: var(--deep);
+    text-align: center;
+  }
+
+  .reviews-grid {
+    max-width: 1050px;
+    margin: 3.5rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: var(--deep2);
+    border: 1px solid rgba(201,168,108,0.1);
+    border-radius: 3px;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .review-card:hover {
+    border-color: rgba(201,168,108,0.3);
+    transform: translateY(-4px);
+  }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(201,168,108,0.08);
+    line-height: 1;
+    font-style: italic;
+  }
+
+  .stars-row {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .reviewer-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--coral));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--deep);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .reviewer-location {
+    font-size: 0.72rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .flag { font-size: 0.9rem; }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--deep2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -300px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,108,0.06) 0%, transparent 70%);
+  }
+
+  .contact-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    position: relative;
+  }
+
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info p {
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .channel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(201,168,108,0.15);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .channel:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,108,0.04);
+  }
+
+  .channel-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .wa-icon { background: rgba(37,211,102,0.15); }
+  .phone-icon { background: rgba(201,168,108,0.15); }
+  .ig-icon { background: rgba(232,123,90,0.15); }
+
+  .channel-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .channel-value {
+    font-size: 0.92rem;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .contact-faq h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 1.2rem 0;
+  }
+  .faq-q {
+    font-size: 0.88rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+  }
+  .faq-a {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #070e1a;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,108,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 2rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 2rem;
+    letter-spacing: 1px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .exp-container { grid-template-columns: 1fr; gap: 3rem; }
+    .packages-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .reviews-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+    section { padding: 5rem 1.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Sky<span>Lovers</span></a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="nav-contact">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-bg-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="cable-illustration">
+    <div class="cable-line"></div>
+    <div class="cable-line"></div>
+    <div class="cable-line"></div>
+    <div class="gondola">
+      <div class="gondola-box"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="badge">✦ Sharm El Sheikh ✦</div>
+    <h1>Above the<br><em>Red Sea</em></h1>
+    <p class="hero-sub">A luxury cable car experience for couples — where the mountains meet the sea and the sky turns gold.</p>
+    <div class="hero-cta">
+      <a href="#packages" class="btn-primary">View Packages</a>
+      <a href="#experience" class="btn-outline">Discover More</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="exp-container">
+    <div class="exp-visual">
+      <div class="exp-photo-frame"></div>
+      <div class="exp-badge-float">
+        <span class="num">★ 4.9</span>
+        <span class="lbl">Guest Rating</span>
+      </div>
+    </div>
+    <div class="exp-text">
+      <p class="section-label">The Experience</p>
+      <h2 class="section-title">A Moment Above<br><em>Everything</em></h2>
+      <div class="divider"></div>
+      <p>Glide high above Sharm El Sheikh in a private gondola with your partner. Watch the Sinai mountains stretch to the horizon while the Red Sea shimmers below — a view that no photo can truly capture.</p>
+      <p>Perfect for couples celebrating anniversaries, honeymoons, or simply an unforgettable afternoon. No rush. No crowds. Just the two of you and the sky.</p>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🚡</div>
+          <div>
+            <h4>Private Gondola</h4>
+            <p>Exclusive cabin for two — no sharing with strangers</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌅</div>
+          <div>
+            <h4>Sunset Timing</h4>
+            <p>We schedule your ride to catch the golden hour</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📸</div>
+          <div>
+            <h4>Photo Moments</h4>
+            <p>Dedicated stops at the most scenic viewpoints</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <div>
+            <h4>Safety First</h4>
+            <p>International-standard equipment, fully licensed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <p class="section-label">Choose Your Experience</p>
+  <h2 class="section-title">Our <em>Packages</em></h2>
+  <div class="packages-grid">
+
+    <!-- Package 1 -->
+    <div class="pkg-card">
+      <div class="pkg-photo">
+        <div class="pkg-photo-placeholder pkg1-bg">
+          <span style="font-size:3rem;">🌊</span>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <h3 class="pkg-name">Sunset Ride</h3>
+        <p class="pkg-desc">A single cable car journey timed to the golden sunset over the Red Sea.</p>
+        <ul class="pkg-includes">
+          <li>30-minute private gondola ride</li>
+          <li>Sunset timing guaranteed</li>
+          <li>Welcome drinks included</li>
+          <li>Photo opportunity stops</li>
+        </ul>
+        <div class="pkg-price">
+          <span class="amount">$49</span>
+          <span class="per">/ per couple</span>
+        </div>
+        <a href="#contact" class="pkg-cta">Book This Package</a>
+      </div>
+    </div>
+
+    <!-- Package 2 — Featured -->
+    <div class="pkg-card featured">
+      <div class="pkg-featured-label">✦ Most Popular ✦</div>
+      <div class="pkg-photo">
+        <div class="pkg-photo-placeholder pkg2-bg">
+          <span style="font-size:3rem;">💑</span>
+        </div>
+      </div>
+      <div class="pkg-body featured-body">
+        <h3 class="pkg-name">Romance Package</h3>
+        <p class="pkg-desc">The complete romantic experience — champagne, roses, and the most beautiful view in Sinai.</p>
+        <ul class="pkg-includes">
+          <li>60-minute private gondola ride</li>
+          <li>Champagne & chocolate</li>
+          <li>Fresh roses on arrival</li>
+          <li>Professional photos included</li>
+          <li>Sunset + night sky views</li>
+        </ul>
+        <div class="pkg-price">
+          <span class="amount">$89</span>
+          <span class="per">/ per couple</span>
+        </div>
+        <a href="#contact" class="pkg-cta solid">Book This Package</a>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="pkg-card">
+      <div class="pkg-photo">
+        <div class="pkg-photo-placeholder pkg3-bg">
+          <span style="font-size:3rem;">🌟</span>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <h3 class="pkg-name">VIP Experience</h3>
+        <p class="pkg-desc">Our most exclusive offering — a full private evening above Sharm El Sheikh.</p>
+        <ul class="pkg-includes">
+          <li>90-minute private gondola ride</li>
+          <li>Private guide & photographer</li>
+          <li>3-course dinner at summit</li>
+          <li>Hotel pickup & drop-off</li>
+          <li>Certificate of experience</li>
+        </ul>
+        <div class="pkg-price">
+          <span class="amount">$149</span>
+          <span class="per">/ per couple</span>
+        </div>
+        <a href="#contact" class="pkg-cta">Book This Package</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <p class="section-label">See For Yourself</p>
+  <h2 class="section-title">The <em>View</em> Awaits</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-placeholder g1">
+        <div class="gallery-emoji">🌅</div>
+        <span class="gallery-caption">Sunset over Red Sea</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder g2">
+        <div class="gallery-emoji">🚡</div>
+        <span class="gallery-caption">The gondola</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder g3">
+        <div class="gallery-emoji">⛰️</div>
+        <span class="gallery-caption">Sinai mountains</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder g4">
+        <div class="gallery-emoji">💑</div>
+        <span class="gallery-caption">Couples moments</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder g5">
+        <div class="gallery-emoji">🌙</div>
+        <span class="gallery-caption">Night sky view</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-upload-note">
+    📸 Replace placeholders with your real photos to bring this gallery to life
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-label">What Couples Say</p>
+  <h2 class="section-title">Real <em>Stories</em></h2>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars-row">★★★★★</div>
+      <p class="review-text">Absolutely breathtaking. We did the Romance Package for our anniversary and it was the highlight of our entire trip to Sharm. The sunset timing was perfect.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">S</div>
+        <div>
+          <div class="reviewer-name">Sophie & James</div>
+          <div class="reviewer-location"><span class="flag">🇬🇧</span> London, UK</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars-row">★★★★★</div>
+      <p class="review-text">Un'esperienza indimenticabile! Eravamo in luna di miele e questo è stato il momento più bello. Il servizio era eccezionale, ci siamo sentiti davvero speciali.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">M</div>
+        <div>
+          <div class="reviewer-name">Marco & Giulia</div>
+          <div class="reviewer-location"><span class="flag">🇮🇹</span> Milano, Italia</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars-row">★★★★★</div>
+      <p class="review-text">We've been to Sharm three times and this was genuinely something new. The views from up there are unlike anything you can find on the ground. Booked within 5 minutes of arriving.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">R</div>
+        <div>
+          <div class="reviewer-name">Rachel & Tom</div>
+          <div class="reviewer-location"><span class="flag">🇬🇧</span> Manchester, UK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="section-label">Get In Touch</p>
+      <h2>Ready to <em style="color:var(--gold);font-style:italic;">Book?</em></h2>
+      <div class="divider"></div>
+      <p>No online payments needed — just reach out directly and we'll arrange everything for you. We speak English, Italian, and Arabic.</p>
+
+      <div class="contact-channels">
+        <a href="https://wa.me/201XXXXXXXXX" class="channel">
+          <div class="channel-icon wa-icon">💬</div>
+          <div>
+            <span class="channel-label">WhatsApp</span>
+            <span class="channel-value">+20 1XX XXX XXXX</span>
+          </div>
+        </a>
+        <a href="tel:+201XXXXXXXXX" class="channel">
+          <div class="channel-icon phone-icon">📞</div>
+          <div>
+            <span class="channel-label">Call Us</span>
+            <span class="channel-value">+20 1XX XXX XXXX</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/yourhandle" class="channel">
+          <div class="channel-icon ig-icon">📷</div>
+          <div>
+            <span class="channel-label">Instagram</span>
+            <span class="channel-value">@SkyLoversSharm</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-faq">
+      <h3>Common Questions</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I confirm my booking?</div>
+        <div class="faq-a">Just message us on WhatsApp with your preferred date and package. We'll confirm within a few hours and send you all the details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is the experience suitable for all ages?</div>
+        <div class="faq-a">Yes, the cable car is comfortable and safe for adults of all ages. Children are welcome when accompanied by adults.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I add a personal touch (proposal, anniversary)?</div>
+        <div class="faq-a">Absolutely — we love helping couples create unforgettable memories. Tell us in advance and we'll arrange something special.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if the weather is bad?</div>
+        <div class="faq-a">Sharm El Sheikh has over 360 sunny days a year, but if conditions aren't ideal, we'll reschedule at no extra cost.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer hotel pickup?</div>
+        <div class="faq-a">Hotel pickup is included in the VIP Package. For other packages, we can arrange transport — just ask us.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SkyLovers</div>
+  <div class="footer-tagline">Cable Car Experiences · Sharm El Sheikh, Egypt</div>
+  <div class="footer-bottom">© 2025 SkyLovers Sharm · All rights reserved · Made with ♥ in Sinai</div>
+</footer>
+
+<script>
+  // Generate stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.animationDuration = (2 + Math.random() * 3) + 's';
+    star.style.width = star.style.height = (Math.random() < 0.3 ? 3 : 2) + 'px';
+    starsEl.appendChild(star);
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pkg-card, .review-card, .gallery-item, .feature-item, .channel').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
